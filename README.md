@@ -140,9 +140,9 @@ Very rough, conservative guide (assuming quantized models and default-ish LM Stu
 | Large (12–14B)              | 12–14B | 8–14 GB                  | 🔴             | 🔴        | 🟠 |
 | Very large (30B+)           | 30B+   | 15 GB+                   | 🔴             | 🔴        | 🔴         |
 
-🟢: Reasonable chance of working at usable speeds.
-🟠: Might load with careful settings and smaller context windows, but expect slowness and possible out‑of‑memory errors.
-🔴: Very unlikely to be usable on this setup.
+🟢 Reasonable chance of working at usable speeds.  
+🟠 Might load with careful settings and smaller context windows, but expect slowness and possible out‑of‑memory errors.  
+🔴 Very unlikely to be usable on this setup.
 
 These are just guidelines. Exact behavior depends on your hardware, the specific quant, LM Studio’s context window settings, and many other low‑level details.
 
