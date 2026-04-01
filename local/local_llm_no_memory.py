@@ -5,7 +5,7 @@ endpoint = "http://127.0.0.1:1234/api/v1/chat"
 model = "llama-3.2-3b-instruct"
 system_prompt = "You are a helpful assistant."
 
-def chat(endpoint: str, model: str, message: str, system_prompt: str):
+def chat(endpoint: str, model: str, message: str, system_prompt: str,full_data: bool = False):
     payload = {
         "model": model,
         "input": message,
@@ -17,23 +17,13 @@ def chat(endpoint: str, model: str, message: str, system_prompt: str):
     data = resp.json()
 
     msg = next((i for i in data.get("output", []) if i.get("type") == "message"), {})
-    return msg.get("content", "")
+    if full_data:
+        return data
+    else:
+        return msg.get("content", "")
 
-# Chat with the model ONCE!
-
-schema = """
-Always return city name i mentioned in the following format, only provide the json, no text:
-{
-    "city": "name"
-}
-
-my text:
-
-"""
 
 prompt = input("You: ")
 
-full_prompt = f"{schema}\n\n{prompt}"
-
-response = chat(endpoint, model, full_prompt, system_prompt)
+response = chat(endpoint, model, prompt, system_prompt, full_data=False) # False for only the text response, True for the full data
 print("Assistant: " + response)

@@ -1,5 +1,96 @@
 ## Local LLM Showcase
 
+## Introduction
+
+This repository is a small, focused **starter kit for running local LLMs via LM Studio and Python**.  
+It shows how to:
+
+- Use LM Studio as a **local inference server**.
+- Call that server from simple Python scripts (`requests` only).
+- Run **one‑shot prompts** or a **multi‑turn chat with memory**.
+- Optionally connect to **Azure OpenAI** for cloud‑based experiments (advanced, and not needed for local usage).
+
+If you want a minimal, practical example of “I have a model in LM Studio, now how do I talk to it from my own code?”, this repo is meant for you.
+
+## 0. Getting the Code and Setting Up Python
+
+### 0.1 Clone the repository
+
+In a terminal:
+
+```bash
+git clone https://github.com/Jamroszczyk/local-llm-starter-kit.git
+cd local-llm-starter-kit
+```
+
+### 0.2 Create and activate a virtual environment
+
+Pick the example that matches your system.
+
+- **Windows (PowerShell)**
+
+  ```powershell
+  python -m venv venv
+  .\venv\Scripts\Activate.ps1
+  ```
+
+- **Windows (cmd.exe)**
+
+  ```cmd
+  python -m venv venv
+  venv\Scripts\activate.bat
+  ```
+
+or if that fails, use this for activation:
+
+  ```cmd
+  .\venv\Scripts\activate   
+  ```
+
+- **macOS / Linux (bash/zsh)**
+
+  ```bash
+  python3 -m venv venv
+  source venv/bin/activate
+  ```
+
+Once activated, your prompt should show `(venv)` at the beginning.
+
+### 0.3 Install Python dependencies
+
+With the virtual environment active and from the project root:
+
+```bash
+pip install -r requirements.txt
+```
+
+### 0.4 Select the venv interpreter in your editor (optional but recommended)
+
+If you are using VS Code / Cursor / another IDE:
+
+- Choose the Python interpreter from the `venv` you just created:
+  - On Windows: something like `.\venv\Scripts\python.exe`
+  - On macOS / Linux: something like `./venv/bin/python`
+
+This ensures running/debugging from the editor uses the same environment as your terminal.
+
+### 0.5 Running the code
+
+Running the Python scripts requires LM Studio to be set up and running **as described in the sections below**.  
+Once LM Studio is configured and the `endpoint` / `model` are set, you can run:
+
+```bash
+python local/local_llm_no_memory.py
+```
+
+or:
+
+```bash
+python local/local_llm_memory.py
+```
+
+The rest of this README focuses on setting up **LM Studio** and wiring it to these scripts.
+
 This codebase demonstrates how to use **LM Studio** as a local LLM server and talk to it with simple Python scripts.
 
 The two main entry points are:

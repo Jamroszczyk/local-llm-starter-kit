@@ -1,5 +1,10 @@
 import requests
 
+# Define the endpoint, model, and system prompt
+endpoint = "http://127.0.0.1:1234/api/v1/chat"
+model = "mistral-small-3.2-24b-instruct-2506"
+system_prompt = "You are a helpful assistant."
+
 # Recursive chat function definition
 def chat(endpoint: str, model: str, system_prompt: str, previous_response_id: str | None = None):
     prompt = input("You: ")
@@ -24,10 +29,5 @@ def chat(endpoint: str, model: str, system_prompt: str, previous_response_id: st
 
     chat(endpoint, model, system_prompt, data.get("response_id"))
 
-
-# Define the endpoint, model, and system prompt
-endpoint = "http://127.0.0.1:1234/api/v1/chat"
-model = "mistral-small-3.2-24b-instruct-2506"
-system_prompt = "You are a helpful assistant."
 
 chat(endpoint, model, system_prompt)
