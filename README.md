@@ -134,15 +134,15 @@ Very rough, conservative guide (assuming quantized models and default-ish LM Stu
 
 | Model (approx)              | Params | Typical quant file size | CPU only, 8 GB RAM | GPU 8 GB VRAM | GPU 16 GB VRAM |
 |-----------------------------|--------|--------------------------|--------------------|---------------|----------------|
-| Tiny (1–2B)                 | 1–2B   | 1–2 GB                   | **Probably**       | **Probably**  | **Probably**   |
-| Small (3–4B)                | 3–4B   | 2–4 GB                   | **Borderline**     | **Probably**  | **Probably**   |
-| Medium (7–8B)               | 7–8B   | 4–8 GB                   | **No**             | **Borderline**| **Probably**   |
-| Large (12–14B)              | 12–14B | 8–14 GB                  | **No**             | **No**        | **Borderline** |
-| Very large (30B+)           | 30B+   | 15 GB+                   | **No**             | **No**        | **No**         |
+| Tiny (1–2B)                 | 1–2B   | 1–2 GB                   | 🟢       | 🟢  | 🟢   |
+| Small (3–4B)                | 3–4B   | 2–4 GB                   | 🟠     | 🟢  | 🟢   |
+| Medium (7–8B)               | 7–8B   | 4–8 GB                   | 🔴             | 🟠| 🟢   |
+| Large (12–14B)              | 12–14B | 8–14 GB                  | 🔴             | 🔴        | 🟠 |
+| Very large (30B+)           | 30B+   | 15 GB+                   | 🔴             | 🔴        | 🔴         |
 
-- **No**: Very unlikely to be usable on this setup.
-- **Borderline**: Might load with careful settings and smaller context windows, but expect slowness and possible out‑of‑memory errors.
-- **Probably**: Reasonable chance of working at usable speeds.
+🟢: Reasonable chance of working at usable speeds.
+🟠: Might load with careful settings and smaller context windows, but expect slowness and possible out‑of‑memory errors.
+🔴: Very unlikely to be usable on this setup.
 
 These are just guidelines. Exact behavior depends on your hardware, the specific quant, LM Studio’s context window settings, and many other low‑level details.
 
