@@ -98,7 +98,7 @@ The two main entry points are:
 - `local/local_llm_no_memory.py` – **single exchange**, no memory between runs.
 - `local/local_llm_memory.py` – **ongoing chat**, with conversation state remembered via `previous_response_id` in LM Studio’s cache.
 
-The `cloud/azure_llm.py` file is **not** part of the local setup; see the note at the end of this document before touching it.
+The `cloud/azure_llm.py` file is **not** part of the local setup; see section 9, at the end of this document before touching it.
 
 ---
 
