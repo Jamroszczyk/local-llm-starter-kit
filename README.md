@@ -104,7 +104,9 @@ The `cloud/azure_llm.py` file is **not** part of the local setup; see section 9,
 
 ## 1. Install LM Studio
 
-1. Go to the official LM Studio download page and install it for your platform.
+1. Go to the official LM Studio download page and install the GUI version for your platform.
+https://lmstudio.ai/
+
 2. Launch LM Studio once installation is complete.
 
 ---
